@@ -17,8 +17,8 @@ class Snippet(models.Model):
     linenos = models.BooleanField(default=False)
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
     style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='snippets')
-    highlighted = models.TextField()
+    # owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='snippets')
+    # highlighted = models.TextField()
 
     class Meta:
         ordering = ('created',)
@@ -27,10 +27,11 @@ class Snippet(models.Model):
         """
         `pygments` 라이브러리를 사용하여 하이라이트된 코드를 만든다.
         """
-        lexer = get_lexer_by_name(self.language)
-        linenos = self.linenos and 'table' or False
-        options = self.title and {'title': self.title} or {}
-        formatter = HtmlFormatter(style=self.style, linenos=linenos,
-                                  full=True, **options)
-        self.highlighted = highlight(self.code, lexer, formatter)
-        super(Snippet, self).save(*args, **kwargs)
+        # lexer = get_lexer_by_name(self.language)
+        # linenos = self.linenos and 'table' or False
+        # options = self.title and {'title': self.title} or {}
+        # formatter = HtmlFormatter(style=self.style, linenos=linenos,
+        #                           full=True, **options)
+        # self.highlighted = highlight(self.code, lexer, formatter)
+        # super(Snippet, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
