@@ -21,9 +21,9 @@ snippet_highlight = cbv.SnippetViewSet.as_view({
 
 app_name = 'snippets'
 urlpatterns = [
-    url(r'^$', snippet_list, name='snippet_list'),
-    url(r'^(?P<pk>[0-9]+)/$', snippet_detail, name='snippet_detail'),
-    url(r'^(?P<pk>[0-9]+)/highlight/$', snippet_highlight, name='snippet_highlight'),
+    url(r'^$', snippet_list, name='snippets-list'),
+    url(r'^(?P<pk>[0-9]+)/$', snippet_detail, name='snippets-detail'),
+    url(r'^(?P<pk>[0-9]+)/highlight/$', snippet_highlight, name='snippets-highlight'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
