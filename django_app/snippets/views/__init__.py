@@ -1,2 +1,2 @@
-from .cbv import *
+# from .cbv import *
 # from .fbv import *
