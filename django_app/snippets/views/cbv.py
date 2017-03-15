@@ -1,4 +1,5 @@
 from rest_framework import generics
+from rest_framework import pagination
 from rest_framework import permissions
 from rest_framework import renderers
 from rest_framework.response import Response
@@ -12,6 +13,7 @@ class SnippetList(generics.ListCreateAPIView):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    pagination_class = pagination.PageNumberPagination
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

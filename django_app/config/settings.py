@@ -44,6 +44,7 @@ ALLOWED_HOSTS = config['django']['allowed_hosts']
 
 # DRF
 REST_FRAMEWORK = {
+    'PAGE_SIZE': 5,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
